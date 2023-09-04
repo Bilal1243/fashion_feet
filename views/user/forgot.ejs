@@ -1,0 +1,27 @@
+<%-include('../layouts/header.ejs')%>
+<style>
+    .form-control:focus{
+      box-shadow: none;
+    }
+  </style>
+<div class="d-flex justify-content-center align-items-center pt-5">
+    <div class="d-flex justify-content-center align-items-center pt-5">
+        <div class="card py-5 px-3 mt-5 text-center">
+            <h5 class="m-0 mb-2">Mobile phone verification</h5>
+            <span class="mobile-text mb-4">Enter the mobile number you are registered with the account</span>
+            <form action="/forgot" method="post">
+                <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fa-solid fa-square-phone fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="number" id="form3Example3c" class="form-control" name="mobile" placeholder="enter your mobile number" required/>
+                    </div>
+                  </div>
+                  <button class="btn btn-lg px-5 rounded" type="submit" style="background-color: #A2A2A2;">send otp</button>
+            </form>
+            <div class="d-flex justify-content-center align-items-center mt-3">
+                <p style="color: rgb(41, 101, 41);"><%=(typeof fmessage!=='undefined' )?fmessage:""%></p>
+            </div>
+        </div>
+    </div>
+</div>
+<%-include('../layouts/footer.ejs')%>

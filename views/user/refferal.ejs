@@ -1,0 +1,32 @@
+<%-include('../layouts/header.ejs')%>
+<style>
+    .form-control:focus{
+      box-shadow: none;
+    }
+  </style>
+    <div class="d-flex justify-content-center align-items-center pt-5">
+        <div class="card py-5 px-3 mt-5">
+            <h5 class="m-0 mb-2">Do you have any referal Code??</h5>
+            <span class="mobile-text">Enter the referal code</span>
+            <form action="/ref/user/validate/referal" method="post">
+                <div class="d-flex justify-content-center align-items-center flex-row mt-5">
+                    <input type="text" class="form-control ms-3" autofocus="" name="ref_code">
+                </div>
+                <div class="d-flex justify-content-center mx-4 mb-1 mb-lg-3 mt-3">
+                    <button type="submit" class="btn btn-primary btn-lg">Use Code</button>
+                  </div>
+            </form>
+           <div class="skip-container d-flex justify-content-end">
+            <a href="/">skip</a>
+           </div>
+        </div>
+    </div>
+
+    <script>
+        
+    window.history.forward();
+    function noBack() {
+      window.history.forward();
+    }
+    </script>
+<%-include('../layouts/footer.ejs')%>

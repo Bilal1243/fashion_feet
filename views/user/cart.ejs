@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart</title>
+  <link rel="shortcut icon" type="image/x-icon" href="https://images.emojiterra.com/google/android-10/512px/1f6d2.png">
+  <link rel="stylesheet" href="https://fontawesome.com/v4.7.0/assets/font-awesome/css/font-awesome.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <link rel="stylesheet" href="/cartStyle.css" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+
+<body>
+  <!-- header section starts -->
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light p-3">
+    <div class="container-fluid">
+      <div class="brand-container me-3">
+        <a class="navbar-brand" href="#" style="
+              font-size: 30px;
+              font-weight: 600;
+              font-family: 'Kanit', sans-serif;
+            ">Fashion Feet</a>
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse align-items-center justify-content-end" id="navbarSupportedContent">
+        <div class="category-container pe-3">
+          <ul class="navbar-nav mb-2 mb-lg-0 text-center">
+            <li class="nav-item">
+              <a class="nav-link me-lg-1" aria-current="page" href="/home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link me-lg-1" href="/shop" id="navbarDropdown" role="button">Shop</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link me-lg-1" href="/contact" id="navbarDropdown" role="button">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+        <div class="right-container d-lg-flex align-items-center">
+          <form class="d-flex">
+            <input class="form-control mr-sm-1" type="text" placeholder="Search" aria-label="Search" name="search" />
+            <button type="submit" class="ms-1 bg-light" style="
+                  border: 1px solid rgb(227, 227, 227);
+                  border-radius: 5px;
+                  padding: 5px;
+                " value="search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+          <div class="user-head pe-4 mt-2 mt-lg-0 mt-md-0 mt-sm-0">
+            <a href="/wishlist" style="
+                  text-decoration: none;
+                  color: rgb(98, 98, 98);
+                  font-size: 25px;
+                " class="me-2 ms-2"><i class="head-btn fa-regular fa-heart"></i></a>
+            <a href="/addtocart" style="
+                  text-decoration: none;
+                  color: rgb(0, 0, 0);
+                  font-size: 25px;
+                " class="me-2"><i class="head-btn fa-solid fa-cart-shopping"></i></a>
+            <a href="/my-profile" style="
+                  text-decoration: none;
+                  color: rgb(98, 98, 98);
+                  font-size: 25px;
+                "><i class="head-btn fa-solid fa-user"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- header section ended -->
+
+  <section class="h-100">
+    <div class="container-fluid">
+      <div class="container">
+        <% if (!cartitems || cartitems.length===0){ %>
+          <div class="container">
+            <div class="img-container d-flex justify-content-center align-items-center mt-3">
+              <img src="https://www.labsolutions-eg.com/resources/assets/front/images/cartempty.png" alt=""
+                class="img-fluid" width="300px" height="300px">
+            </div>
+          </div>
+          <p class="text-muted mt-5 text-center">you dont have any items in the cart...Shop Now</p>
+          <div class="no-item d-flex justify-content-center">
+            <a href="/shop"><button type="button" class="btn btn-success">Shop Now</button></a>
+          </div>
+          <% } else {%>
+            <div class="row d-flex my-4">
+              <div class="card mb-4 col-lg-8 col-md-8 col-sm-12 col-12">
+                <div class="card-header py-3">
+                  <h5 class="mb-0">Total items <%= cartitems.length %>
+                  </h5>
+                </div>
+                <% cartitems.reverse().forEach(item=> { %>
+                  <div class="card-body">
+                    <!-- Single item -->
+                    <div class="row">
+                      <div class="col-4 col-sm-4 col-md-4 col-lg-3 mb-4 mb-lg-0">
+                        <!-- Image -->
+                        <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
+                          <img src="admin-assets/uploads/<%= item.image %>" class="w-100" />
+                          <a href="#!">
+                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
+                          </a>
+                          <div class="d-flex align-items-center justify-content-center mt-2">
+                            <button class="btn-sm btn-link border-0 bg-light px-3 me-2"
+                              onclick="decreaseQuantity('<%= item.product_id %>', -1)">
+                              <i class="fas fa-minus"></i>
+                            </button>
+
+                            <input id="<%= item.product_id %>" min="1" name="quantity" value="<%= item.quantity %>"
+                              type="text" class="form-control form-control-sm" style="width: 48px" , />
+
+                            <button class="btn-sm btn-link border-0 bg-light ms-2 px-3"
+                              onclick="increaseQuantity('<%= item.product_id %>', 1)">
+                              <i class="fas fa-plus"></i>
+                            </button>
+                          </div>
+                        </div>
+                        <!-- Image -->
+                      </div>
+
+                      <div class="col-4 col-sm-4 col-md-6 col-lg-6 mb-4 mb-lg-0">
+                        <!-- Data -->
+                        <p><strong>
+                            <%= item.product_name %>
+                          </strong></p>
+                        <p class="text-muted">for <%= item.ideal_for %>
+                        </p>
+                        <p class="text-start">
+                          <strong class="item-price">₹<%= item.offer_price %></strong>
+                        </p>
+                        <!-- Data -->
+                      </div>
+
+                      <div class="col-4 col-sm-4 col-lg-3 col-md-2 mb-4 mb-lg-0 d-flex justify-content-end">
+                        <!-- Quantity -->
+                        <div class="me-2">
+                          <button class="btn btn-danger btn-sm mb-2" data-mdb-toggle="tooltip"
+                            title="Move to the wish list" onclick="addTowishlist('<%=item.product_id%>')"><i
+                              class="fas fa-heart"></i></button>
+                        </div>
+                        <div>
+                          <button onclick="deleteProduct('<%= item.product_id %>')" class="btn btn-primary btn-sm me-1 mb-2" data-mdb-toggle="tooltip" title="Remove item">
+                          <i class="fas fa-trash"></i></button>
+                          <!-- <a href="/delete-cart-item?id=<%= item.product_id %>" type="button"
+                            class="btn btn-primary btn-sm me-1 mb-2" data-mdb-toggle="tooltip" title="Remove item">
+                            <i class="fas fa-trash"></i>
+                          </a> -->
+                        </div>
+                        <!-- Quantity -->
+                      </div>
+                    </div>
+                  </div>
+                  <hr />
+                  <% }); %>
+              </div>
+              <!-- Single item -->
+              <div class="col-md-4 col-sm-6 col-lg-4">
+                <div class="card mb-4">
+                  <div class="card-header py-3">
+                    <h5 class="mb-0">Price Details</h5>
+                  </div>
+                  <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                      <% let total=0; %>
+                        <% cartitems.forEach(item=> { %>
+                          <% let price=item.offer_price * item.quantity; %>
+                            <li
+                              class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                              <%=item.product_name%>
+                                <span id="a-<%=item.product_id%>">₹<%=price%></span>
+                                <% total +=item.offer_price * item.quantity%>
+                            </li>
+                            <% }); %>
+                              <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                Delivery Charge
+                                <span>Free</span>
+                              </li>
+                              <li
+                                class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                                <div>
+                                  <strong>Total amount</strong>
+                                </div>
+                                <span><strong id="Subtotal">
+                                    <%=total%>
+                                  </strong></span>
+                              </li>
+                    </ul>
+                    <div class="d-flex justify-content-center align-items-center">
+                      <a href="" id="proceed-button">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block rounded">
+                          Place Order
+                        </button>
+                      </a>
+                    </div>
+                    <p style="color: rgb(41, 101, 41);" class="text-muted small text-center">
+                      <%=(typeof stockMessage!=='undefined' )?stockMessage:""%>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% } %>
+      </div>
+    </div>
+  </section>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script>
+    function addTowishlist(id) {
+      $.ajax({
+        url: '/add-to-wishlist?id=' + id,
+        method: 'get',
+        success: (response) => {
+          if (response.wishStatus === true) {
+            Swal.fire({
+              icon: 'success',
+              title: 'Product added to Wishlist',
+              showConfirmButton: false,
+              timer: 1500
+            }).then(()=> {
+              location.href = "/addtocart"
+            })
+          }
+        }
+      })
+    }
+
+
+    function deleteProduct(id) {
+      $.ajax({
+        url: '/delete-cart-item?id=' + id,
+        method: 'delete',
+        success: (response) => {
+          if (response.status === true) {
+            Swal.fire({
+              icon: 'success',
+              title: 'Product removed from cart',
+              showConfirmButton: false,
+              timer: 1500
+            }).then(()=> {
+              location.href = "/addtocart"
+            })
+          }
+        }
+      })
+    }
+
+
+
+    function updateQuantity(quantity, productId) {
+      $.ajax({
+        type: "POST",
+        url: "/update-quantity/" + productId, // Point to your Node.js server route
+        data: { quantity: quantity },
+        success: function (response) {
+          if (response.status == true) {
+            $("#" + productId).val(quantity);
+            const updatedPriceElement = document.querySelector(
+              `#a-${productId}`
+            )
+            const newprise = response.totalPrice;
+            updatedPriceElement.innerHTML = '₹' + newprise;
+
+            // cartTotal making it visible
+            const cartarea = document.querySelector("#Subtotal");
+            const newcarttotal = response.cartTotal;
+            console.log(newcarttotal);
+            cartarea.innerHTML = newcarttotal;
+
+
+
+            console.log("Quantity updated successfully!");
+          }
+          else {
+            Toastify({
+              text: "Product is Out Of Stock",
+              className: "info",
+              style: {
+                background: "linear-gradient(to right, #020024, #ff0000)",
+              }
+            }).showToast();
+            console.log("Quantity updated successfully!");
+          }
+          // Handle the response from the server (if needed)
+        },
+        error: function (xhr, status, error) {
+          // Handle errors (if any)
+          console.error("Error updating quantity:", error);
+        },
+      });
+    }
+
+    function increaseQuantity(productId) {
+      var quantityInput = $(`#${productId}`);
+      var newQuantity = parseInt(quantityInput.val()) + 1;
+      updateQuantity(newQuantity, productId);
+    }
+
+    function decreaseQuantity(productId) {
+      var quantityInput = $(`#${productId}`);
+      var newQuantity = parseInt(quantityInput.val()) - 1;
+      if (newQuantity > 0) {
+        quantityInput.val(newQuantity);
+        updateQuantity(newQuantity, productId);
+      }
+    }
+
+    function getSubtotalValue() {
+      const subtotalElement = document.getElementById('Subtotal');
+      return subtotalElement.textContent.trim();
+    }
+
+    // Function to construct the URL and redirect with the query parameter
+    function redirectToOrderAddressPage() {
+      const subtotalValue = getSubtotalValue();
+      const url = `/loadOrderAdressPage?tprice=${subtotalValue}`;
+
+      window.location.href = url;
+    }
+
+
+    document.getElementById('proceed-button').addEventListener('click', function (event) {
+      const subtotalValue = getSubtotalValue();
+      event.preventDefault();
+      redirectToOrderAddressPage()
+    });
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+<!-- Mirrored from wp.alithemes.com/html/evara/evara-backend/page-brands.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Aug 2021 15:33:35 GMT -->
+
+<head>
+    <meta charset="utf-8">
+    <title>Brands</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="">
+    <meta property="og:type" content="">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.creativefabrica.com/wp-content/uploads/2021/09/03/F-ff-logo-design-vector-Graphics-16738354-1-580x386.jpg">
+    <!-- Template CSS -->
+    <link href="admin-assets/css/main.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.min.js"></script>
+</head>
+
+<body>
+    <div class="screen-overlay"></div>
+    <aside class="navbar-aside" id="offcanvas_aside">
+        <div class="aside-top">
+            <a href="/admin/home" class="brand-wrap"
+                style="text-decoration: none;color: black; font-family :'Times New Roman', Times, serif;font-size: medium;">Fashion
+                Feet</a>
+            <div>
+                <button class="btn btn-icon btn-aside-minimize"> <i class="text-muted material-icons md-menu_open"></i>
+                </button>
+            </div>
+        </div>
+        <nav>
+            <ul class="menu-aside">
+                <li class="menu-item active">
+                    <a class="menu-link" href="/admin/home"> <i class="icon material-icons md-home"></i>
+                        <span class="text">Dashboard</span>
+                    </a>
+                </li>
+                <li class="menu-item has-submenu">
+                    <a class="menu-link" href="page-products-list.html"> <i
+                            class="icon material-icons md-shopping_bag"></i>
+                        <span class="text">List</span>
+                    </a>
+                    <div class="submenu">
+                        <a href="/admin/product-list">Product List</a>
+                        <a href="/admin/user-list">User List</a>
+                        <a href="/admin/category-list">Categories List</a>
+                    </div>
+                </li>
+                <li class="menu-item has-submenu">
+                    <a class="menu-link" href=""> <i class="icon material-icons md-add_box"></i>
+                        <span class="text">Add-ons </span>
+                    </a>
+                    <div class="submenu">
+                        <a href="/admin/add-product">Add Product</a>
+                        <a href="/admin/add-category">Add Category</a>
+                    </div>
+                </li>
+                <li class="menu-item has-submenu">
+                    <a class="menu-link" href=""> <i class="icon material-icons md-store"></i>
+                        <span class="text">Orders</span>
+                    </a>
+                    <div class="submenu">
+                        <a href="/admin/order-manage">Order History</a>
+                    </div>
+                </li>
+                <li class="menu-item has-submenu">
+                    <a class="menu-link" href=""> <i class="icon material-icons md-add_box"></i>
+                        <span class="text">Banners</span>
+                    </a>
+                    <div class="submenu">
+                        <a href="/admin/load-Banners">Banners</a>
+                        <a href="/admin/Add-Banner">Add Banner</a>
+                    </div>
+                </li>
+                <li class="menu-item has-submenu">
+                    <a class="menu-link" href="""> <i class=" icon material-icons md-store"></i>
+                        <span class="text">Coupons</span>
+                    </a>
+                    <div class="submenu">
+                        <a href="/admin/load-coupons">Coupons</a>
+                        <a href="/admin/Add-coupon">Add Coupon</a>
+                    </div>
+                </li>
+                <li class="menu-item has-submenu">
+                    <a class="menu-link" href="#"> <i class="icon material-icons md-person"></i>
+                        <span class="text">Account</span>
+                    </a>
+                    <div class="submenu">
+                        <a href="page-account-login.html">User login</a>
+                        <a href="page-account-register.html">User registration</a>
+                        <a href="page-error-404.html">Error 404</a>
+                    </div>
+                </li>
+                <li class="menu-item">
+                    <a class="menu-link" href="page-reviews.html"> <i class="icon material-icons md-comment"></i>
+                        <span class="text">Reviews</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a class="menu-link" href="page-brands.html"> <i class="icon material-icons md-stars"></i>
+                        <span class="text">Brands</span> </a>
+                </li>
+                <li class="menu-item">
+                    <a class="menu-link" disabled href="#"> <i class="icon material-icons md-pie_chart"></i>
+                        <span class="text">Statistics</span>
+                    </a>
+                </li>
+            </ul>
+            <hr>
+            <ul class="menu-aside">
+                <li class="menu-item has-submenu">
+                    <a class="menu-link" href="#"> <i class="icon material-icons md-settings"></i>
+                        <span class="text">Settings</span>
+                    </a>
+                    <div class="submenu">
+                        <a href="page-settings-1.html">Setting sample 1</a>
+                        <a href="page-settings-2.html">Setting sample 2</a>
+                    </div>
+                </li>
+                <li class="menu-item">
+                    <a class="menu-link" href="/admin/admin-logout"> <i class="icon material-icons md-exit_to_app"></i>
+                        <span class="text text-danger"> Logout </span>
+                    </a>
+                </li>
+            </ul>
+            <br>
+            <br>
+        </nav>
+    </aside>
+    <main class="main-wrap">
+        <header class="main-header navbar">
+            <div class="col-search">
+                <form class="searchform">
+                    <div class="input-group">
+                        <input list="search_terms" type="text" class="form-control" placeholder="Search term">
+                        <button class="btn btn-light bg" type="button"> <i
+                                class="material-icons md-search"></i></button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-nav">
+                <button class="btn btn-icon btn-mobile me-auto" data-trigger="#offcanvas_aside"> <i
+                        class="material-icons md-apps"></i> </button>
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link btn-icon darkmode" href="#"> <i class="material-icons md-nights_stay"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </header><!-- header ends -->
+
+        <section class="content-main">
+            <div class="card-body">
+                <div class="content-header">
+                    <div>
+                        <h2 class="content-title card-title">Categories </h2>
+                        <p>Category management</p>
+                    </div>
+                    <div class="d-flex justify-content-end ms-auto">
+                        <a href="javascript:history.back()"><i class="material-icons md-arrow_back"></i> Go back </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <% for (let i=0; i < Categories.length; i++) { const category=Categories[i]; %>
+                        <div class="col-xl-4 col-lg-3 col-md-4 col-6">
+                            <figure class="card border-1">
+                                <div class="card-header bg-white text-center d-flex justify-content-center">
+                                    <img src="admin-assets/uploads/<%=category.category_logo%>" class="img-fluid"
+                                        alt="Logo">
+                                </div>
+                                <figcaption class="card-body text-center">
+                                    <h6 class="card-title m-0">
+                                        <%= category.category_name %>
+                                    </h6>
+                                    <p><%=category.offer%>%</p>
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <a href="/admin/edit-category?id=<%= category._id %>"
+                                            class="btn btn-sm font-sm rounded btn-brand me-2">
+                                            <i class="material-icons md-edit"></i> Edit
+                                        </a>
+                                       <%if(category.is_listed === true){%>
+                                        <button class="btn btn-sm font-sm btn-light rounded"
+                                        onclick="UnlistCategory('<%= category._id %>')"><i class="fa-solid fa-eye-slash"></i>Unlist
+                                        </button>
+                                       <%} else {%>
+                                        <button class="btn btn-sm font-sm btn-light rounded"
+                                        onclick="listCategory('<%= category._id %>')"><i class="fa-solid fa-eye"></i>List
+                                        </button>
+                                       <%}%>
+                                    </div>
+                                </figcaption>
+                            </figure>
+                        </div>
+                        <% } %>
+                            <% if (Categories.length===0) { %>
+                                <p>No Categories</p>
+                                <% } %>
+                </div>
+            </div><!-- card-body end// -->
+            <!-- card end// -->
+            <% if (Categories.length> 5) { %>
+                <div class="pagination-area mt-30 mb-50">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-start">
+                            <li class="page-item active"><a class="page-link" href="#">01</a></li>
+                            <li class="page-item"><a class="page-link" href="#">02</a></li>
+                            <li class="page-item"><a class="page-link" href="#">03</a></li>
+                            <li class="page-item"><a class="page-link dot" href="#">...</a></li>
+                            <li class="page-item"><a class="page-link" href="#">16</a></li>
+                            <li class="page-item"><a class="page-link" href="#"><i
+                                        class="material-icons md-chevron_right"></i></a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <% } %>
+                    <!-- card-body end// --> <!-- card end// -->
+        </section> <!-- content-main end// -->
+    </main>
+
+    <script>
+        function UnlistCategory(id) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: '/admin/unlist-category?id=' + id,
+                        method: 'get',
+                        success: (response) => {
+                            if (response.status === true) {
+                                Swal.fire(
+                                    'Unlisted!',
+                                    'Your file has been unlisted.',
+                                    'success'
+                                ).then(()=> {
+                                    location.href = '/admin/category-list'
+                                })
+                            }
+                        }
+                    })
+                }
+            })
+        }
+        function listCategory(id) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, List it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: '/admin/list-category?id=' + id,
+                        method: 'get',
+                        success: (response) => {
+                            if (response.status === true) {
+                                Swal.fire(
+                                    'Unlisted!',
+                                    'Your file has been unlisted.',
+                                    'success'
+                                ).then(()=> {
+                                    location.href = '/admin/category-list'
+                                })
+                            }
+                        }
+                    })
+                }
+            })
+        }
+    </script>
+
+    <script src="admin-assets/js/vendors/jquery-3.6.0.min.js"></script>
+    <script src="admin-assets/js/vendors/bootstrap.bundle.min.js"></script>
+    <script src="admin-assets/js/vendors/select2.min.js"></script>
+    <script src="admin-assets/js/vendors/perfect-scrollbar.js"></script>
+    <script src="admin-assets/js/vendors/jquery.fullscreen.min.js"></script>
+    <!-- Main Script -->
+    <script src="admin-assets/js/main.js" type="text/javascript"></script>
+</body>
+
+
+<!-- Mirrored from wp.alithemes.com/html/evara/evara-backend/page-brands.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Aug 2021 15:33:49 GMT -->
+
+</html>

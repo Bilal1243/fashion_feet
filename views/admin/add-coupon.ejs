@@ -1,0 +1,290 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+<!-- Mirrored from wp.alithemes.com/html/evara/evara-backend/page-form-product-1.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Aug 2021 15:33:31 GMT -->
+<head>
+    <meta charset="utf-8">
+    <title>Admin Dashboard</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="">
+    <meta property="og:type" content="">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.creativefabrica.com/wp-content/uploads/2021/09/03/F-ff-logo-design-vector-Graphics-16738354-1-580x386.jpg">
+    <!-- Template CSS -->
+    <link href="admin-assets/css/main.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="screen-overlay"></div>
+    <aside class="navbar-aside" id="offcanvas_aside">
+        <div class="aside-top">
+            <a href="/admin/home" class="brand-wrap" style="text-decoration: none;color: black; font-family :'Times New Roman', Times, serif;font-size: medium;">Fashion Feet</a>
+            <div>
+                <button class="btn btn-icon btn-aside-minimize"> <i class="text-muted material-icons md-menu_open"></i> </button>
+            </div>
+        </div>
+        <nav>
+            <ul class="menu-aside">
+                <li class="menu-item active">
+                    <a class="menu-link" href="/admin/home"> <i class="icon material-icons md-home"></i>
+                        <span class="text">Dashboard</span>
+                    </a>
+                </li>
+                <li class="menu-item has-submenu">
+                    <a class="menu-link" href="page-products-list.html"> <i class="icon material-icons md-shopping_bag"></i>
+                        <span class="text">List</span>
+                    </a>
+                    <div class="submenu">
+                        <a href="/admin/product-list">Product List</a>
+                        <a href ="/admin/user-list">User List</a>
+                        <a href="/admin/category-list">Categories List</a>
+                    </div>
+                </li>
+                <li class="menu-item has-submenu">
+                    <a class="menu-link" href=""> <i class="icon material-icons md-add_box"></i>
+                        <span class="text">Add-ons </span>
+                    </a>
+                    <div class="submenu">
+                        <a href="/admin/add-product">Add Product</a>
+                        <a href="/admin/add-category">Add Category</a>
+                    </div>
+                </li>
+                <li class="menu-item has-submenu">
+                    <a class="menu-link" href=""> <i class="icon material-icons md-store"></i>
+                        <span class="text">Orders</span>
+                    </a>
+                    <div class="submenu">
+                        <a href="/admin/order-manage">Order History</a>
+                    </div>
+                </li>
+                <li class="menu-item has-submenu">
+                    <a class="menu-link" href=""> <i class="icon material-icons md-add_box"></i>
+                        <span class="text">Banners</span>
+                    </a>
+                    <div class="submenu">
+                        <a href="/admin/load-Banners">Banners</a>
+                        <a href="/admin/Add-Banner">Add Banner</a>
+                    </div>
+                </li>
+                <li class="menu-item has-submenu">
+                    <a class="menu-link" href="""> <i class="icon material-icons md-store"></i>
+                        <span class="text">Coupons</span>
+                    </a>
+                    <div class="submenu">
+                        <a href="/admin/load-coupons">Coupons</a>
+                        <a href="/admin/Add-coupon">Add Coupon</a>
+                    </div>
+                </li>
+                <li class="menu-item has-submenu">
+                    <a class="menu-link" href="#"> <i class="icon material-icons md-person"></i>
+                        <span class="text">Account</span>
+                    </a>
+                    <div class="submenu">
+                        <a href="page-account-login.html">User login</a>
+                        <a href="page-account-register.html">User registration</a>
+                        <a href="page-error-404.html">Error 404</a>
+                    </div>
+                </li>
+                <li class="menu-item">
+                    <a class="menu-link" href="page-reviews.html"> <i class="icon material-icons md-comment"></i>
+                        <span class="text">Reviews</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a class="menu-link" href="page-brands.html"> <i class="icon material-icons md-stars"></i>
+                        <span class="text">Brands</span> </a>
+                </li>
+                <li class="menu-item">
+                    <a class="menu-link" disabled href="#"> <i class="icon material-icons md-pie_chart"></i>
+                        <span class="text">Statistics</span>
+                    </a>
+                </li>
+            </ul>
+            <hr>
+            <ul class="menu-aside">
+                <li class="menu-item has-submenu">
+                    <a class="menu-link" href="#"> <i class="icon material-icons md-settings"></i>
+                        <span class="text">Settings</span>
+                    </a>
+                    <div class="submenu">
+                        <a href="page-settings-1.html">Setting sample 1</a>
+                        <a href="page-settings-2.html">Setting sample 2</a>
+                    </div>
+                </li>
+                <li class="menu-item">
+                    <a class="menu-link" href="/admin/admin-logout"> <i class="icon material-icons md-exit_to_app"></i>
+                        <span class="text text-danger"> Logout </span>
+                    </a>
+                </li>
+            </ul>
+            <br>
+            <br>
+        </nav>
+    </aside>
+    <main class="main-wrap">
+        <header class="main-header navbar">
+            <div class="col-search">
+                <form class="searchform">
+                    <div class="input-group">
+                        <input list="search_terms" type="text" class="form-control" placeholder="Search term">
+                        <button class="btn btn-light bg" type="button"> <i class="material-icons md-search"></i></button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-nav">
+                <button class="btn btn-icon btn-mobile me-auto" data-trigger="#offcanvas_aside"> <i class="material-icons md-apps"></i> </button>
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link btn-icon darkmode" href="#"> <i class="material-icons md-nights_stay"></i> </a>
+                    </li>
+                </ul>
+            </div>
+        </header><!-- header ends -->
+
+        <!-- header section ends -->
+
+        <section class="content-main">
+            <div class="row">
+                <div class="col-9">
+                    <div class="content-header">
+                        <h2 class="content-title">Add New Coupon</h2>
+                        <p class="small text-muted mb-15"><%=(typeof couponmessage!=='undefined' )?couponmessage:""%></p>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h4>Basic</h4>
+                        </div>
+                        <div class="card-body">
+                            <form action="/admin/add-coupon" method="post">
+                                <div class="mb-4">
+                                    <label for="product_name" class="form-label">Coupon Code</label>
+                                    <input type="text" placeholder="Type here" class="form-control" id="coupon" name="coupon" required maxlength="50">
+                                    <p id="coupon_error" style="color: red;"></p>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="product_name" class="form-label">Start Date</label>
+                                    <input type="date" placeholder="Type here" class="form-control" id="start" name="start" required  maxlength="50">
+                                    <p id="start_error" style="color: red;"></p>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="product_name" class="form-label">Expiry Date</label>
+                                    <input type="date" placeholder="Type here" class="form-control" id="validity" name="validity" required  maxlength="30">
+                                    <p id="validity_error" style="color: red;"></p>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="product_name" class="form-label">offer price</label>
+                                    <input type="number" placeholder="Type here" class="form-control" id="offer" name="offer" required>
+                                    <p id="offer_error" style="color: red;"></p>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="mb-4">
+                                            <label class="form-label">min_price</label>
+                                            <div class="row gx-2">
+                                                <input placeholder="$" type="text" class="form-control" name="min_price" required  min="250"  max="50000" id="min_price">
+                                                <p id="min_price_error" style="color: red;"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="mb-4">
+                                            <label class="form-label">max_price</label>
+                                            <input placeholder="$" type="text" class="form-control" name="max_price" required  min="250"  max="50000" id="max_price">
+                                            <p id="max_price_error" style="color: red;"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description" placeholder="Type here" required></textarea>
+                                    <p id="description_error" style="color: red;"></p>
+                                </div>
+                        </div>
+                    </div> <!-- card end// -->
+                </div>
+                <div>
+                    <button class="btn btn-md rounded font-sm hover-up" type="submit" onclick="return validation()">Publish</button>
+                </div>
+            </form>
+            </div>
+        </section> <!-- content-main end// -->
+    </main>
+    <script>
+                function validation() {
+            // Clear previous error messages
+            document.getElementById('coupon_error').textContent = '';
+            document.getElementById('start_error').textContent = '';
+            document.getElementById('validity_error').textContent = '';
+            document.getElementById('offer_error').textContent = '';
+            document.getElementById('min_price_error').textContent = '';
+            document.getElementById('max_price_error').textContent = '';
+            document.getElementById('description_error').textContent = '';
+
+            let coupon = document.getElementById('coupon').value;
+            let start = document.getElementById('start').value;
+            let validity = document.getElementById('validity').value;
+            let offer = document.getElementById('offer').value;
+            let min_price = document.getElementById('min_price').value;
+            let max_price = document.getElementById('max_price').value;
+            let description = document.getElementById('exampleFormControlTextarea1').value
+
+            let isValid = true;
+
+            if (coupon.trim() === '') {
+                document.getElementById('coupon_error').textContent = 'coupon is required';
+                isValid = false;
+            }
+
+            if (start.trim() === '') {
+                document.getElementById('start_error').textContent = 'start date is required';
+                isValid = false;
+            }
+            if (validity.trim() === '') {
+                document.getElementById('validity_error').textContent = 'validity date is required';
+                isValid = false;
+            }
+            if (description.trim() === '') {
+                document.getElementById('description_error').textContent = 'description is required';
+                isValid = false;
+            }
+            const offerP = parseInt(offer)
+            console.log(offerP)
+            if (offer.trim() === '' || offerP <= 0) {
+                document.getElementById('offer_error').textContent = 'Give valid offer';
+                isValid = false;
+            }
+            const minP = parseInt(min_price)
+            const maxP = parseInt(max_price)
+            if (min_price.trim() === ''|| min_price <= 0 || minP > maxP) {
+                document.getElementById('min_price_error').textContent = 'min price is not valid';
+                isValid = false;
+            }
+            if (max_price.trim() === ''|| max_price <= 0) {
+                document.getElementById('max_price_error').textContent = 'Please enter valid price';
+                isValid = false;
+            }
+            if (isValid) {
+                return true;  // Allow form submission
+            }
+            return false;
+        }
+      </script>
+    <script src="admin-assets/js/vendors/jquery-3.6.0.min.js"></script>
+    <script src="admin-assets/js/vendors/bootstrap.bundle.min.js"></script>
+    <script src="admin-assets/js/vendors/select2.min.js"></script>
+    <script src="admin-assets/js/vendors/perfect-scrollbar.js"></script>
+    <script src="admin-assets/js/vendors/jquery.fullscreen.min.js"></script>
+    <!-- Main Script -->
+    <script src="admin-assets/js/main.js" type="text/javascript"></script>
+</body>
+
+
+<!-- Mirrored from wp.alithemes.com/html/evara/evara-backend/page-form-product-1.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Aug 2021 15:33:32 GMT -->
+</html>

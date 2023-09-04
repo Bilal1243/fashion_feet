@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>order summary</title>
+
+  <link rel="stylesheet" href="https://fontawesome.com/v4.7.0/assets/font-awesome/css/font-awesome.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="/linearicons.css">
+  <link rel="stylesheet" href="/owl.carousel.css">
+  <link rel="stylesheet" href="/font-awesome.min.css">
+  <link rel="stylesheet" href="/themify-icons.css">
+  <link rel="stylesheet" href="/nice-select.css">
+  <link rel="stylesheet" href="/nouislider.min.css">
+  <link rel="stylesheet" href="/bootstrap.css">
+  <link rel="stylesheet" href="/main.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+  <style>
+    .head-btn:hover {
+      color: black;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- header section starts -->
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light p-3 g-0">
+    <div class="container-fluid">
+      <div class="brand-container me-3">
+        <a class="navbar-brand" href="#"
+          style="font-size: 30px;font-weight: 600;font-family: 'Kanit', sans-serif;">Fashion Feet</a>
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse align-items-center justify-content-end" id="navbarSupportedContent">
+        <div class="category-container pe-3">
+          <ul class="navbar-nav mb-2 mb-lg-0 text-center">
+            <li class="nav-item">
+              <a class="nav-link me-lg-1" aria-current="page" href="/home">Home</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link  me-lg-1" href="/shop" id="navbarDropdown" role="button">Shop</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link  me-lg-1" href="/contact" id="navbarDropdown" role="button">Contact
+                Us</a>
+            </li>
+          </ul>
+        </div>
+        <div class="right-container d-lg-flex align-items-center">
+          <form class="d-flex">
+            <input class="form-control mr-sm-1" type="text" placeholder="Search" aria-label="Search" name="search">
+            <button type="submit" class="ms-1 bg-light"
+              style="border: 1px solid rgb(227, 227, 227); border-radius: 5px;padding: 5px;" value="search"><i
+                class="fa-solid fa-magnifying-glass"></i></button>
+          </form>
+          <div class="user-head pe-4 mt-2 mt-lg-0 mt-md-0 mt-sm-0">
+            <a href="" style="text-decoration: none; color: rgb(98, 98, 98); font-size: 25px;" class="me-2 ms-2"><i
+                class="head-btn fa-regular fa-heart"></i></a>
+            <a href="/addtocart" style="text-decoration: none; color: rgb(98, 98, 98); font-size: 25px;" class="me-2"><i
+                class="head-btn fa-solid fa-cart-shopping"></i></a>
+            <a href="/my-profile" style="text-decoration: none; color: rgb(98, 98, 98); font-size: 25px;"><i
+                class="head-btn fa-solid fa-user"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- header section ended -->
+
+  <!--content section-->
+
+  <div class="container-fluid">
+    <div class="container">
+      <!-- Title -->
+
+      <!-- Main content -->
+      <div class="row">
+        <div class="col-lg-8">
+          <!-- Details -->
+          <div class="card mb-4">
+            <div class="card-body">
+              <table class="table table-borderless">
+                <tbody>
+                  <% for (let i=0;i<product.length;i++){ %>
+                    <tr>
+                      <td>
+                        <div class="d-flex mb-2">
+                          <div class="flex-shrink-0">
+                            <img src="admin-assets/uploads/<%=product[i].product_image%>" alt="" width="100"
+                              class="img-fluid">
+                          </div>
+                          <div class="flex-lg-grow-1 ms-3">
+                            <h6 class="small mb-0"><a href="#" class="text-reset">
+                                <%=product[i].product_name%>
+                              </a></h6>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <%=product[i].product_qauntity%>
+                      </td>
+                      <td class="text-end">&#8377;<%=product[i].product_price%>
+                      </td>
+                    </tr>
+                    <% } %>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td colspan="2">Subtotal</td>
+                    <td class="text-end">&#8377;<%=Order.totalprice%>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">Delivery Charge</td>
+                    <td class="text-end">Free</td>
+                  </tr>
+                  <tr class="fw-bold">
+                    <td colspan="2">TOTAL</td>
+                    <td class="text-end">&#8377;<%=Order.totalprice%>
+                    </td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+          <!-- Payment -->
+          <div class="card mb-4">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-lg-6">
+                  <h3 class="h6">Payment Method</h3>
+                  Total: &#8377;<%=Order.totalprice%>
+                    </p>
+                    <span class="badge bg-success rounded-pill">
+                      <%=Order.payment_type%>
+                    </span></p>
+                </div>
+                <div class="col-lg-6">
+                  <h3 class="h6">Billing address</h3>
+                  <address>
+                    <strong>
+                      <%=address.order_name%>
+                    </strong><br>
+                    <%=address.address%><br>
+                      <abbr title="Phone">P:</abbr>
+                      <%=address.address_number%>
+                  </address>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <!-- Customer Notes -->
+          <div class="card mb-4">
+            <!-- Shipping information -->
+            <div class="card-body">
+              <h3 class="h6">Shipping Information</h3>
+              <hr>
+              <h3 class="h6">Address</h3>
+              <address>
+                <strong>
+                  <%=address.order_name%>
+                </strong><br>
+                <%=address.address%><br>
+                  <abbr title="Phone">P:</abbr>
+                  <%=address.address_number%>
+              </address>
+              <% if(Order.delivery_status==="Delivered" ) {%>
+                <button onclick="returnOrder('<%=order_id%>')"
+                  class="btn btn-sm btn-primary mb-1 mb-lg-0 mb-md-0">return order</button>
+                <%} else if (Order.delivery_status==="Cancelled" ) { %>
+                  <p style="letter-spacing: 1px;"><span class="badge bg-danger rounded-pill p-3">
+                      <%=Order.delivery_status%>
+                    </span></p>
+                  <% } else if (Order.delivery_status==="Returned" ) { %>
+                    <p style="letter-spacing: 1px;"><span class="badge bg-danger rounded-pill p-3">
+                        <%=Order.delivery_status%>
+                      </span></p>
+                    <% } else{%>
+                      <% if(Order.payment_type==="Wallet" ) {%>
+                        <button onclick="returnOrder('<%=order_id%>')"
+                          class="btn btn-sm btn-primary mb-1 mb-lg-0 mb-md-0">Cancel order</button>
+                        <%} else if((Order.payment_type==="Razorpay" && Order.delivery_status==="Confirmed" ) ||
+                          (Order.payment_type==="Razorpay" && Order.delivery_status==="Shipped" )) {%>
+                          <button onclick="returnOrder('<%=order_id%>')"
+                            class="btn btn-sm btn-primary mb-1 mb-lg-0 mb-md-0">return order</button>
+                          <%} else {%>
+                            <button class="btn btn-outline-danger" onclick="cancelOrder('<%=order_id%>')">Cancel
+                              Order</button>
+                            <%}%>
+                              <% } %>
+                              <a id="downloadBtn" href="/invoice/downloadInvoice/orderSummary?id=<%=Order._id%>" class="btn btn-outline-success">invoice</a>
+            </div>
+          </div>
+          <a href="/load-Orders" class="btn btn btn-outline-primary rounded">Go Back</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--content section ends-->
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script>
+
+
+    function cancelOrder(orderid) {
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, cancel it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          $.ajax({
+            url: '/cancel-order?orderid=' + orderid,
+            method: 'patch',
+            success: (response) => {
+              if (response.status === true) {
+                Toastify({
+                  text: "Order Cancelled Successfully",
+                  className: "info",
+                  style: {
+                    background: "linear-gradient(to right, #00b09b, #96c93d)",
+                  }
+                }).showToast()
+                setTimeout(() => {
+                  location.href = "/load-Orders"
+                }, 1000);
+              }
+            }
+          });
+        }
+      });
+    }
+    function returnOrder(orderid) {
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          $.ajax({
+            url: '/return-order?orderid=' + orderid,
+            method: 'patch',
+            success: (response) => {
+              if (response.status === true) {
+                Toastify({
+                  text: "Order Returned Successfully",
+                  className: "info",
+                  style: {
+                    background: "linear-gradient(to right, #00b09b, #96c93d)",
+                  }
+                }).showToast()
+                setTimeout(() => {
+                  location.href = "/load-Orders"
+                }, 1000);
+              }
+            }
+          });
+        }
+      });
+    }
+
+
+  </script>
+
+</body>
+
+</html>

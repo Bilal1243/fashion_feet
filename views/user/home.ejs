@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>
+		<%=title%>
+	</title>
+	<link rel="shortcut icon" type="image/x-icon"
+		href="https://static-00.iconduck.com/assets.00/smile-emoji-2048x2048-0zqwk4yb.png">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="/homeStyle.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+		integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+		integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<link href="shopPage/css/styles.css" rel="stylesheet" />
+
+</head>
+
+<body>
+	<!-- header section starts -->
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container-fluid">
+			<div class="brand-container me-3">
+				<a class="navbar-brand" href="/home"
+					style="font-size: 30px;font-weight: 600;font-family: 'Kanit', sans-serif;">Fashion Feet</a>
+			</div>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+				data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse align-items-center justify-content-end" id="navbarSupportedContent">
+				<div class="category-container pe-4">
+					<ul class="navbar-nav mb-2 mb-lg-0 text-center">
+						<li class="nav-item">
+							<a class="nav-link active me-lg-1" aria-current="page" href="/home">Home</a>
+						</li>
+						<li class="nav-item ">
+							<a class="nav-link  me-lg-1" href="/shop" id="navbarDropdown" role="button">Shop</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link  me-lg-1" href="/contact" id="navbarDropdown" role="button">Contact
+								Us</a>
+						</li>
+					</ul>
+				</div>
+				<div class="right-container d-lg-flex align-items-center">
+					<form class="d-flex" method="post" action="/search">
+						<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"
+							name="search">
+						<button type="submit" class="ms-1 bg-light"
+							style="border: 1px solid rgb(227, 227, 227); border-radius: 5px;padding: 5px;"
+							value="search" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+					</form>
+					<div class="user-head pe-4 mt-2 mt-lg-0 mt-md-0 mt-sm-0">
+						<a href="/wishlist" style="text-decoration: none; color: rgb(98, 98, 98); font-size: 25px;"
+							class="me-2 ms-2"><i class="head-btn fa-regular fa-heart"></i></a>
+						<a href="/addtocart" style="text-decoration: none; color: rgb(98, 98, 98); font-size: 25px;"
+							class="me-2"><i class="head-btn fa-solid fa-cart-shopping"></i></a>
+						<a href="/my-profile" style="text-decoration: none; color: rgb(98, 98, 98); font-size: 25px;"><i
+								class="head-btn fa-solid fa-user"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+
+	<!-- header section ended -->
+
+	<!-- banner section starts -->
+
+	<% if(banners.length> 0){%>
+		<section class="h-100">
+			<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+				<div class="carousel-inner">
+					<% for (let i=0; i < banners.length; i++) { %>
+						<div class="carousel-item <%= i === 0 ? 'active' : '' %>" data-bs-interval="2000">
+							<img src="admin-assets/uploads/<%= banners[i].images %>" class="d-block w-100"
+								alt="Banner Image">
+						</div>
+						<% } %>
+							<%if(banners.length <=1){%>
+								<%} else { %>
+									<button class="carousel-control-prev" type="button"
+										data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+										<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+										<span class="visually-hidden">Previous</span>
+									</button>
+									<button class="carousel-control-next" type="button"
+										data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+										<span class="carousel-control-next-icon" aria-hidden="true"></span>
+										<span class="visually-hidden">Next</span>
+									</button>
+									<%}%>
+				</div>
+		</section>
+		<%} else {%>
+			<div class="banner">
+				<div class="col-12">
+					<a href="">
+						<img src="/home-banner.jpg" alt="" style="width: 100%;">
+					</a>
+				</div>
+			</div>
+			<%}%>
+
+
+
+
+				<!-- <img src="/home-banner.jpg" alt="" class="img-fluid" style="width: 100%;"> -->
+				<!-- banner section ends -->
+
+				<!-- brand section starts -->
+
+				<section>
+					<div class="brand-section-container">
+						<div class="container mt-5">
+							<div class="brand-head text-center">
+								<h3 style="font-family: 'Kanit', sans-serif;">Top Brands</h3>
+								<hr style="width: 25%; margin-left: auto;margin-right: auto;">
+							</div>
+							<div class="row">
+								<% categories.forEach(category=> { %>
+									<div class="brand-container col-6 col-sm-6 col-md-3 col-lg-3 text-center">
+										<div class="img-parent">
+											<div class="bimg-container">
+												<a href="/<%=category.category_name%>/shop?cat_id=<%=category._id%>"><img
+														src="admin-assets/uploads/<%=category.category_logo%>"
+														alt=""></a>
+											</div>
+										</div>
+										<div class="brand-name-container">
+											<a href="/<%=category.category_name%>/shop?cat_id=<%=category._id%>">
+												<%=category.category_name%>
+											</a>
+										</div>
+									</div>
+									<% }); %>
+							</div>
+						</div>
+					</div>
+					<hr style="width: 90%; margin-left: auto;margin-right: auto;">
+				</section>
+
+				<!-- brand section ends -->
+
+				<!-- new items section -->
+
+				<section class="new-section-contianer h-100 mt-3">
+					<div class="new-section-header text-center mt-5">
+						<h3 style="font-family: 'Kanit', sans-serif;">Newest Sheos</h3>
+					</div>
+					<div class="container">
+						<div class="container-fluid">
+							<div class="row card-container-row">
+								<% products.forEach(product=> { %>
+									<div class="col-12 mb-5 col-md-4 col-lg-4">
+										<div class="card h-100">
+											<!-- Product image-->
+											<div class="img-container w-100">
+												<img class="card-img-top mx-auto d-block img-fixed-size"
+													src="admin-assets/uploads/<%= product.image[0] %>" alt="...">
+												<button class="wishlist-icon"
+													style="background-color :transparent;border: none;"
+													onclick="addtoWishlist('<%=product._id%>')"><i
+														class=" fa-regular fa-heart"></i></button>
+												<!-- <a href="/add-to-wishlist?id=<%=product._id%>"><i class="wishlist-icon fa-regular fa-heart"></i></a> -->
+											</div>
+
+											<!-- Product details-->
+											<a href="/product-details?id=<%= product._id %>" style="text-decoration: none;color: black;">
+											<div class="card-body p-4">
+												<div class="text-center">
+													<!-- Product name-->
+													<h5 class="fw-bolder">
+														<%= product.product_name %>
+													</h5>
+													<!-- Product price-->
+													<del>₹<%= product.og_price %></del> - ₹<%= product.offer_price %>
+												</div>
+											</div>
+										</a>
+											<!-- Product actions-->
+											<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+												<div class="text-center"><a class="btn btn-outline-dark mt-auto"
+														href="/product-details?id=<%= product._id %>">View</a></div>
+											</div>
+										</div>
+									</div>
+									<% }); %>
+							</div>
+						</div>
+
+					</div>
+					</div>
+					</div>
+					<hr style="width: 90%; margin: auto;">
+				</section>
+
+				<!-- new items section ended -->
+
+				<!-- features area -->
+
+				<!-- start features Area -->
+				<section class="features-area section_gap mt-5 mb-5">
+					<div class="features-container container">
+						<div class="row features-inner d-flex justify-content-center align-items-center">
+							<!-- single features -->
+							<div class="col-lg-3 col-md-4 col-sm-4 text-center p-4">
+								<div class="single-features">
+									<div class="f-icon">
+										<img src="/f-icon1.png" alt="">
+									</div>
+									<h6>Free Delivery</h6>
+									<p>Free delivery on all purchase</p>
+								</div>
+							</div>
+							<!-- single features -->
+							<div class="col-lg-3 col-md-4 col-sm-4 text-center">
+								<div class="single-features">
+									<div class="f-icon">
+										<img src="/f-icon3.png" alt="">
+									</div>
+									<h6>24/7 Support</h6>
+									<p>Full time support from out team</p>
+								</div>
+							</div>
+							<!-- single features -->
+							<div class="col-lg-3 col-md-4 col-sm-4 text-center">
+								<div class="single-features">
+									<div class="f-icon">
+										<img src="/f-icon4.png" alt="">
+									</div>
+									<h6>Secure Payment</h6>
+									<p>Secure payment on all purchase</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- end features Area -->
+
+				<!-- features area ended -->
+
+				<footer class="text-center text-lg-start" style="background-color: #2f2f2f;">
+					<div class="container d-flex justify-content-center pt-5">
+
+						<div class="social-icons">
+							<a class="social-icon social-icon--facebook">
+								<i class="fab fa-facebook"></i>
+								<div class="tooltip">Facebook</div>
+							</a>
+							<a class="social-icon social-icon--github">
+								<i class="fab fa-github"></i>
+								<div class="tooltip">Github</div>
+							</a>
+							<a class="social-icon social-icon--instagram">
+								<i class="fab fa-instagram"></i>
+								<div class="tooltip">Instagram</div>
+							</a>
+							<a class="social-icon social-icon--linkedin">
+								<i class="fab fa-linkedin"></i>
+								<div class="tooltip">LinkedIn</div>
+							</a>
+						</div>
+					</div>
+
+					<!-- Copyright -->
+					<div class="text-center text-white p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+						© 2023 Copyright:
+						<a class="text-white" href="">FashionFeet.com</a>
+					</div>
+					<!-- Copyright -->
+				</footer>
+
+				<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+				<script>
+					function addtoWishlist(id) {
+						$.ajax({
+							url: '/add-to-wishlist?id=' + id,
+							method: 'get',
+							success: (response) => {
+								if (response.wishStatus === true) {
+									Toastify({
+										text: "item added to wishlist",
+										duration: 1000,
+										gravity: "bottom", // `top` or `bottom`
+										position: "center", // `left`, `center` or `right`
+										stopOnFocus: true, // Prevents dismissing of toast on hover
+										style: {
+											background: "linear-gradient(to right, #000, #000)",
+										},
+									}).showToast();
+								}
+							}
+						})
+					}
+				</script>
+
+</body>
+
+</html>

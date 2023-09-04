@@ -1,0 +1,129 @@
+.itemside {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+.itemside .aside,
+.itemside .left {
+    position: relative;
+    -ms-flex-negative: 0;
+    flex-shrink: 0
+}
+
+.itemside .info {
+    padding-left: 15px;
+    padding-right: 7px
+}
+
+.itemside p {
+    margin-bottom: 0
+}
+
+.itemside .title {
+    display: block;
+    margin-bottom: 5px
+}
+
+.itemside a.title:hover {
+    color: #088178
+}
+
+a.itemside {
+    color: initial;
+    text-decoration: none
+}
+
+a.itemside:hover .title {
+    text-decoration: underline
+}
+
+[contenteditable].form-control:focus {
+    outline: none !important;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  table {
+    font-size: 13px;
+    color: #495058 !important;
+  }
+  table thead {
+    background: #f7f8f9;
+  }
+  table thead th {
+    padding: 10px 0;
+  }
+  table .form-check {
+    display: inline-block;
+    margin: 0 auto;
+  }
+  .table > :not(caption) > * > * {
+    padding: 0.8rem 0.4rem;
+  }
+  .table-lg td,
+  .table-lg th {
+    padding: 0.8rem 1rem;
+  }
+  .table-light {
+    color: #495058 !important;
+  }
+
+body.dark table {
+    color: #a6b0cf;
+  }
+  body.dark table thead {
+    background: #32394e !important;
+  }
+  body.dark .table-light {
+    --bs-table-bg: #32394e;
+    --bs-table-striped-bg: #ecedee;
+    --bs-table-striped-color: #000;
+    --bs-table-active-bg: #dfe0e1;
+    --bs-table-active-color: #000;
+    --bs-table-hover-bg: #e5e6e7;
+    --bs-table-hover-color: #000;
+    color: #f6f6f6 !important;
+    border-color: #dfe0e1;
+  }
+
+body.dark .table-hover > tbody > tr:hover {
+    --bs-table-accent-bg: rgba(88, 151, 251, 0.075);
+    color: var(--bs-table-hover-color);
+  }
+  body.dark .box {
+    border: 1px solid #383e50;
+  }
+  body.dark .card-user .card-header {
+    background: #383e50 !important;
+  }
+  body.dark table {
+    color: #ccc !important;
+  }
+
+
+@media all and (max-width: 480px) {
+    .table-responsive table {
+      min-width: unset;
+    }
+    .table-responsive table td {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+    .table-responsive table td::before {
+      content: attr(data-title) " ";
+      float: left;
+      text-transform: capitalize;
+      margin-right: 15px;
+      font-weight: bold;
+    }
+    .table-responsive table thead {
+      display: none;
+    }
+  }

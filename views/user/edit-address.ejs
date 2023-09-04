@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>edit address</title>
+
+  <link rel="stylesheet" href="https://fontawesome.com/v4.7.0/assets/font-awesome/css/font-awesome.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="/cartStyle.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+  <!-- header section starts -->
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light p-3">
+    <div class="container-fluid">
+      <div class="brand-container me-3">
+        <a class="navbar-brand ms-5" href="#"
+          style="font-size: 30px;font-weight: 600;font-family: 'Kanit', sans-serif;">Fashion Feet</a>
+      </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- header section ended -->
+
+  <section>
+  <div class="container">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">edit Address</h1>
+      </div>
+      <div class="modal-body">
+        <form id="editAddressForm">
+          <div class="mb-3">
+            <input type="text" class="form-control" id="recipient-name" name="order_name" placeholder="Name" oninput="validateInput(this)" value="<%=address.order_name%>">
+          </div>
+          <div class="mb-3">
+            <input type="number" class="form-control" id="recipient-name" name="address_number" placeholder="Mobile Number" value="<%=address.address_number%>">
+          </div>
+          <div class="mb-3">
+            <input type="number" pattern=".{6,}" class="form-control" id="recipient-name" name="pincode" placeholder="Pincode" value="<%=address.pincode%>">
+          </div>
+          <div class="mb-3">
+            <input type="text" class="form-control" id="recipient-name" name="locality" placeholder="locality" value="<%=address.locality%>">
+          </div>
+          <div class="mb-3">
+            <input type="text" class="form-control" id="recipient-name" name="place" placeholder="District/City/Town" value="<%=address.place%>">
+          </div>
+          <div class="mb-3">
+            <select class="form-select" aria-label="Default select example" name="state">
+              <option selected value="kerala">kerala</option>
+              <option value="Assam">Assam</option>
+              <option value="Goa">Goa</option>
+              <option value="Punjab">Punjab</option>
+            </select>
+          </div>
+          <% if(is_single === false){ %>
+            <input type="text" value="<%=cart%>" name="cart_id" style="display: none;">
+            <% } else {%>
+              <input type="text" value="<%=cart%>" name="product_id" style="display: none;">
+            <% } %>
+          <div class="mb-3">
+            <textarea class="form-control" id="message-text" placeholder="Address(area and street)" name="address"><%=address.address%></textarea>
+          </div>
+          <p style="color: rgb(41, 101, 41);" class="text-muted small"><%=(typeof message!=='undefined' )?message:""%></p>
+          <div class="modal-footer">
+            <a href=""><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button></a>
+            <button type="submit" class="btn btn-primary">Save Address</button>
+          </div>
+      </div>
+    </form>
+    </div>
+  </div>
+</section>
+
+    <script>
+function validateInput(input) {
+      if (input.value.trim() === '') {
+        input.setCustomValidity("Please enter a valid value.");
+      } else {
+        input.setCustomValidity('');
+      }
+    }
+
+    document.getElementById('editAddressForm').addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const formData = new FormData(event.target);
+      const addressData = {
+        order_name: formData.get('order_name'),
+        address_number: formData.get('address_number'),
+        pincode: formData.get('pincode'),
+        locality: formData.get('locality'),
+        place: formData.get('place'),
+        city: formData.get('city'),
+        state: formData.get('state'),
+        product_id : formData.get('product_id'),
+        cart_id : formData.get('cart_id'),
+        address: formData.get('address')
+      };
+      try {
+        const response = await fetch('/edited-address', {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(addressData)
+        })
+        const data = await response.json();
+        if (data.status === true) {
+          window.location.href = "/loadOrderAdressPage?tprice=" + data.tprice + "&id=" + data.id
+        } else if(data.cstatus === true) {
+          window.location.href = "/loadOrderAdressPage?tprice=" + data.tprice 
+        }
+      } catch (error) {
+        alert(error.message)
+      }
+    });
+    </script>      
+
+</body>
+
+</html>

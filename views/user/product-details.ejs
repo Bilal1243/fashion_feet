@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Product Details</title>
+
+	<link rel="stylesheet" href="https://fontawesome.com/v4.7.0/assets/font-awesome/css/font-awesome.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link rel="stylesheet" href="/linearicons.css">
+	<link rel="stylesheet" href="/owl.carousel.css">
+	<link rel="stylesheet" href="/font-awesome.min.css">
+	<link rel="stylesheet" href="/themify-icons.css">
+	<link rel="stylesheet" href="/nice-select.css">
+	<link rel="stylesheet" href="/nouislider.min.css">
+	<link rel="stylesheet" href="/bootstrap.css">
+	<link rel="stylesheet" href="/main.css">
+	<link rel="stylesheet" href="/shop.css">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+		integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/elevatezoom/2.2.3/jquery.elevatezoom.js"></script>
+	<style>
+		.head-btn:hover {
+			color: black;
+		}
+
+		.img_zoom_container {
+			overflow: hidden;
+			cursor: zoom-in;
+		}
+
+		.img_zoom {
+			transition: transform 0.9s ease-in-out;
+			transform-origin: center center;
+		}
+
+		.disabled-link {
+			pointer-events: none;
+			cursor: not-allowed;
+			opacity: 0.6;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- header section starts -->
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light p-3 g-0">
+		<div class="container-fluid">
+			<div class="brand-container me-3">
+				<a class="navbar-brand" href="#"
+					style="font-size: 30px;font-weight: 600;font-family: 'Kanit', sans-serif;">Fashion Feet</a>
+			</div>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+				data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse align-items-center justify-content-end" id="navbarSupportedContent">
+				<div class="category-container pe-3">
+					<ul class="navbar-nav mb-2 mb-lg-0 text-center">
+						<li class="nav-item">
+							<a class="nav-link me-lg-1" aria-current="page" href="/home">Home</a>
+						</li>
+						<li class="nav-item ">
+							<a class="nav-link  me-lg-1" href="/shop" id="navbarDropdown" role="button">Shop</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link  me-lg-1" href="/contact" id="navbarDropdown" role="button">Contact
+								Us</a>
+						</li>
+					</ul>
+				</div>
+				<div class="right-container d-lg-flex align-items-center">
+					<form class="d-flex">
+						<input class="form-control mr-sm-1" type="text" placeholder="Search" aria-label="Search"
+							name="search">
+						<button type="submit" class="ms-1 bg-light"
+							style="border: 1px solid rgb(227, 227, 227); border-radius: 5px;padding: 5px;"
+							value="search"><i class="fa-solid fa-magnifying-glass"></i></button>
+					</form>
+					<div class="user-head pe-4 mt-2 mt-lg-0 mt-md-0 mt-sm-0">
+						<a href="" style="text-decoration: none; color: rgb(98, 98, 98); font-size: 25px;"
+							class="me-2 ms-2"><i class="head-btn fa-regular fa-heart"></i></a>
+						<a href="/addtocart" style="text-decoration: none; color: rgb(98, 98, 98); font-size: 25px;"
+							class="me-2"><i class="head-btn fa-solid fa-cart-shopping"></i></a>
+						<a href="/my-profile" style="text-decoration: none; color: rgb(98, 98, 98); font-size: 25px;"><i
+								class="head-btn fa-solid fa-user"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<!-- header section ended -->
+
+	<!--content section-->
+	<section class="pt-3 bg-light g-0">
+		<div class="container  border border-success rounded">
+			<div class="row gx-5">
+				<aside class="col-lg-6">
+					<div class="rounded-4">
+						<div class="screen-container w-100 d-flex justify-content-center align-items-center mt-3">
+							<div class="img_zoom_container d-flex justify-content-center align-items-center w-75"
+								onmousemove="zoom(event)" onmouseout="resetZoom(event)">
+								<img id="main-image" src="admin-assets/uploads/<%=product.image[0]%>"
+									style="object-fit: cover;width: inherit;" />
+							</div>
+						</div>
+						<div class="option-controller w-100 mt-4">
+							<div class="thumbnail w-100 d-flex align-items-center justify-content-center">
+								<% for(let i=0;i<product.image.length;i++) {%>
+									<img onclick="change_image(this)" src="admin-assets/uploads/<%=product.image[i]%>"
+										width="80" height="80" style="object-fit: cover;" class="ms-2">
+									<%}%>
+							</div>
+						</div>
+					</div>
+					<!-- thumbs-wrap.// -->
+					<!-- gallery-wrap .end// -->
+				</aside>
+				<main class="col-lg-6 pt-3">
+					<div class="ps-lg-3">
+						<h6 class="title text-dark">
+							<%=product.brand_name%>
+						</h6>
+						<h4 class="title text-dark">
+							<%=product.product_name%>
+						</h4>
+
+						<div class="d-flex price mb-3 mt-3">
+							<div class="del mr-2"><span class="text-dark">
+									₹<%= product.og_price %>
+								</span></div>
+							<div class="font-weight-bold">
+								₹<%= product.offer_price %>
+							</div>
+						</div>
+
+
+						<div class="row">
+							<dt class="col-3">Ideal For:</dt>
+							<dd class="col-9">
+								<%=product.ideal_for%>
+							</dd>
+
+							<dt class="col-3">Model</dt>
+							<dd class="col-9">
+								<%=product.model_name%>
+							</dd>
+
+							<dt class="col-3">Material</dt>
+							<dd class="col-9">
+								<%=product.outer_material%>
+							</dd>
+
+
+
+							<dt class="col-3">description</dt>
+							<dd class="col-9 text-muted">
+								<%=product.description%>
+							</dd>
+						</div>
+						<% if(product.stock>0) {%>
+							<p style="letter-spacing: 1px; color: black; font-weight: bold; font-size: 1.2rem;">
+								<span class="badge border rounded-pill p-2" style="background-color: rgb(237, 237, 237); color: black;">
+								  Available to Buy
+								</span>
+							  </p>
+							<%} else {%>
+								<p style="letter-spacing: 1px; color: black; font-weight: bold; font-size: 1.2rem;">
+									<span class="badge border rounded-pill p-2" style="background-color: rgb(237, 237, 237); color: black;">
+										Out Of Stock
+									</span>
+								  </p>
+							<%}%>
+						<div class="d-flex justify-content-start pb-3">
+							<% if(product.stock> 0) {%>
+								<a href="/loadOrderAdressPage?id=<%= product._id %>" class="btn btn-success shadow-0 me-2 ">
+									Buy now </a>
+								<%} else {%>
+									<a href="/loadOrderAdressPage?id=<%= product._id %>" class="btn btn-success shadow-0 me-2 disabled-link">
+										Buy now </a>
+								<%}%>
+								<a href="" class="btn btn-primary shadow-0 me-2"
+									onclick="AddToCart('<%= product._id %>')">
+									<i class="me-1 fa fa-shopping-basket"></i> Add to cart </a>
+										<a href="/add-to-wishlist?id=<%=product._id%>"
+											class="btn btn-primary shadow-0 border-0"
+											style="background-color: rgb(182, 0, 0);"><i
+												class="fa-regular fa-heart"></i></i> Save</a>
+						</div>
+					</div>
+				</main>
+			</div>
+		</div>
+	</section>
+	<!-- content -->
+
+
+	<!-- also like section -->
+
+	<div class="container">
+		<div id="content" class="my-5">
+			<div id="products">
+				<% if (products.length> 0) { %>
+					<div class="product-title container">
+						<h5>You May Also Like</h5>
+					</div>
+					<% } %>
+						<div class="row mx-0 g-0">
+							<!-- card -->
+
+							<% products.forEach(product=> { %>
+								<% if (product.is_listed) { %>
+									<div class="col-12 col-sm-6 col-lg-3 col-md-6 mt-0 mt-lg-2 mt-md-5 mb-4 mb-lg-0">
+										<div class="card d-flex flex-column ">
+											<div class="card-img">
+												<img src="admin-assets/uploads/<%= product.image[0] %>"
+													alt="<%= product.product_name %>">
+												<a href=""><i class="wishlist-icon fa-regular fa-heart"></i></a>
+											</div>
+											<a href="/product-details?id=<%= product._id %>"
+												style="text-decoration: none; color: black;">
+												<div class="card-body pt-4">
+													<div class="text-muted mt-auto mb-2 mb-lg-2">
+														<%=product.brand_name%>
+													</div>
+													<div class="product-name mb-3 mb-lg-2">
+														<%= product.product_name %>
+													</div>
+													<div class="text-muted mt-auto mb-3 mb-lg-2">for
+														<%=product.ideal_for%>
+													</div>
+													<div class="d-flex price mb-3 mb-lg-2">
+														<div class="del mr-2"><span class="text-dark">
+																<%= product.og_price %>
+															</span></div>
+														<div class="font-weight-bold">
+															<%= product.offer_price %>
+														</div>
+													</div>
+												</div>
+											</a>
+										</div>
+									</div>
+									<% } %>
+										<% }); %>
+
+						</div>
+			</div>
+		</div>
+	</div>
+
+
+	<footer class="text-center text-lg-start g-0" style="background-color: #3d3d3d;">
+		<div class="container d-flex justify-content-center pt-5">
+
+			<div class="social-icons" style="color: rgb(125, 125, 239);">
+				<a class="social-icon social-icon--facebook">
+					<i class="fab fa-facebook"></i>
+					<div class="tooltip">Facebook</div>
+				</a>
+				<a class="social-icon social-icon--github">
+					<i class="fab fa-github"></i>
+					<div class="tooltip">Github</div>
+				</a>
+				<a class="social-icon social-icon--instagram">
+					<i class="fab fa-instagram"></i>
+					<div class="tooltip">Instagram</div>
+				</a>
+				<a class="social-icon social-icon--linkedin">
+					<i class="fab fa-linkedin"></i>
+					<div class="tooltip">LinkedIn</div>
+				</a>
+			</div>
+		</div>
+
+		<!-- Copyright -->
+		<div class="text-center text-white p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+			© 2023 Copyright:
+			<a class="text-white" href="">FashionFeet.com</a>
+		</div>
+		<!-- Copyright -->
+	</footer>
+
+	<script>
+		function change_image(image) {
+
+			var container = document.getElementById("main-image");
+
+			container.src = image.src;
+		}
+
+		document.addEventListener("DOMContentLoaded", function (event) {
+
+		});
+
+		function AddToCart(id) {
+			event.preventDefault()
+			$.ajax({
+				url: "/add-to-cart?id=" + id,
+				method: 'get',
+				success: (response) => {
+					console.log(response, '+++++=========== ');
+					if (response.error) {
+						console.log(response, 'error--------------------------------');
+
+						console.log(response.error.message, '---------------');
+						Swal.fire({
+							title: 'Error!',
+							text: response.error,
+							icon: 'error',
+							timer: 5000
+						})
+					} else if (response.output == true) {
+						console.log(response, 'status');
+						Swal.fire({
+							title: 'Product Added To Cart!',
+							text: 'Your Product has been added to Cart',
+							icon: 'success',
+							timer: 5000
+						}).then(() => {
+							console.log(id)
+							window.location.href = '/product-details?id=' + id
+						})
+					}
+				}
+			})
+		}
+		function zoom(event) {
+			var zoomer = event.currentTarget;
+			var offsetX = event.offsetX ? event.offsetX : event.touches[0].pageX;
+			var offsetY = event.offsetY ? event.offsetY : event.touches[0].pageY;
+			var x = (offsetX / zoomer.offsetWidth) * 100;
+			var y = (offsetY / zoomer.offsetHeight) * 100;
+			zoomer.querySelector('img').style.transform = 'scale(1.9)';
+			zoomer.querySelector('img').style.transformOrigin = x + '% ' + y + '%';
+		}
+
+		function resetZoom(event) {
+			var zoomer = event.currentTarget;
+			zoomer.querySelector('img').style.transform = 'none';
+		}
+	</script>
+	<!--content section ends-->
+
+</body>
+
+</html>
