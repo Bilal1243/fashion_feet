@@ -35,6 +35,7 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 
   <style>
     .head-btn:hover {
@@ -138,17 +139,21 @@
             <!-- card -->
             <% products.forEach(product=> { %> <% if (product.is_listed) { %>
                 <div class="col-12 mb-5 col-md-4 col-lg-4">
-                  <a href="/product-details?id=<%= product._id %>">
                     <div class="card h-100">
                       <!-- Product image-->
                       <div class="img-container w-100">
                         <img class="card-img-top mx-auto d-block img-fixed-size"
                           src="/admin-assets/uploads/<%=product.image[0]%>" alt="...">
-                        <a href="/add-to-wishlist?id=<%=product._id%>"><i
-                            class="wishlist-icon fa-regular fa-heart"></i></a>
+                          <button class="wishlist-icon"
+													style="background-color :transparent;border: none;"
+													onclick="addtoWishlist('<%=product._id%>')"><i
+														class=" fa-regular fa-heart"></i></button>
+                        <!-- <a href="/add-to-wishlist?id=<%=product._id%>"><i
+                            class="wishlist-icon fa-regular fa-heart"></i></a> -->
                       </div>
 
                       <!-- Product details-->
+                      <a href="/product-details?id=<%= product._id %>" style="text-decoration: none;color: black;">
                       <div class="card-body p-4">
                         <div class="text-center">
                           <!-- Product name-->
@@ -160,13 +165,13 @@
                           <del>₹<%= product.og_price %></del> - ₹<%= product.offer_price %>
                         </div>
                       </div>
+                    </a>
                       <!-- Product actions-->
                       <div class="card-footer  pt-0 border-top-0 bg-transparent">
                         <div class="text-center"><a class="btn btn-outline-dark mt-auto"
                             href="/product-details?id=<%= product._id %>">View</a></div>
                       </div>
                     </div>
-                  </a>
                 </div>
                 <% } %>
                   <% }); %>
@@ -175,6 +180,30 @@
         </div>
         </div>
         <% } %>
+
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+				<script>
+					function addtoWishlist(id) {
+						$.ajax({
+							url: '/add-to-wishlist?id=' + id,
+							method: 'get',
+							success: (response) => {
+								if (response.wishStatus === true) {
+									Toastify({
+										text: "item added to wishlist",
+										duration: 1000,
+										gravity: "bottom", // `top` or `bottom`
+										position: "center", // `left`, `center` or `right`
+										stopOnFocus: true, // Prevents dismissing of toast on hover
+										style: {
+											background: "linear-gradient(to right, #000, #000)",
+										},
+									}).showToast();
+								}
+							}
+						})
+					}
+				</script>
 
 </body>
 

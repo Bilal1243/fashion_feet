@@ -36,6 +36,7 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.min.css">
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/elevatezoom/2.2.3/jquery.elevatezoom.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 	<style>
 		.head-btn:hover {
 			color: black;
@@ -97,7 +98,7 @@
 							value="search"><i class="fa-solid fa-magnifying-glass"></i></button>
 					</form>
 					<div class="user-head pe-4 mt-2 mt-lg-0 mt-md-0 mt-sm-0">
-						<a href="" style="text-decoration: none; color: rgb(98, 98, 98); font-size: 25px;"
+						<a href="/wishlist" style="text-decoration: none; color: rgb(98, 98, 98); font-size: 25px;"
 							class="me-2 ms-2"><i class="head-btn fa-regular fa-heart"></i></a>
 						<a href="/addtocart" style="text-decoration: none; color: rgb(98, 98, 98); font-size: 25px;"
 							class="me-2"><i class="head-btn fa-solid fa-cart-shopping"></i></a>
@@ -180,33 +181,41 @@
 						</div>
 						<% if(product.stock>0) {%>
 							<p style="letter-spacing: 1px; color: black; font-weight: bold; font-size: 1.2rem;">
-								<span class="badge border rounded-pill p-2" style="background-color: rgb(237, 237, 237); color: black;">
-								  Available to Buy
+								<span class="badge border rounded-pill p-2"
+									style="background-color: rgb(237, 237, 237); color: black;">
+									Available to Buy
 								</span>
-							  </p>
+							</p>
 							<%} else {%>
 								<p style="letter-spacing: 1px; color: black; font-weight: bold; font-size: 1.2rem;">
-									<span class="badge border rounded-pill p-2" style="background-color: rgb(237, 237, 237); color: black;">
+									<span class="badge border rounded-pill p-2"
+										style="background-color: rgb(237, 237, 237); color: black;">
 										Out Of Stock
 									</span>
-								  </p>
-							<%}%>
-						<div class="d-flex justify-content-start pb-3">
-							<% if(product.stock> 0) {%>
-								<a href="/loadOrderAdressPage?id=<%= product._id %>" class="btn btn-success shadow-0 me-2 ">
-									Buy now </a>
-								<%} else {%>
-									<a href="/loadOrderAdressPage?id=<%= product._id %>" class="btn btn-success shadow-0 me-2 disabled-link">
-										Buy now </a>
+								</p>
 								<%}%>
-								<a href="" class="btn btn-primary shadow-0 me-2"
-									onclick="AddToCart('<%= product._id %>')">
-									<i class="me-1 fa fa-shopping-basket"></i> Add to cart </a>
-										<a href="/add-to-wishlist?id=<%=product._id%>"
+									<div class="d-flex justify-content-start pb-3">
+										<% if(product.stock> 0) {%>
+											<a href="/loadOrderAdressPage?id=<%= product._id %>"
+												class="btn btn-success shadow-0 me-2 ">
+												Buy now </a>
+											<%} else {%>
+												<a href="/loadOrderAdressPage?id=<%= product._id %>"
+													class="btn btn-success shadow-0 me-2 disabled-link">
+													Buy now </a>
+												<%}%>
+													<a href="" class="btn btn-primary shadow-0 me-2"
+														onclick="AddToCart('<%= product._id %>')">
+														<i class="me-1 fa fa-shopping-basket"></i> Add to cart </a>
+													<button class="btn btn-primary shadow-0 border-0"
+														style="border: none;background-color: rgb(182, 0, 0);"
+														onclick="addtoWishlist('<%=product._id%>')"><i
+															class="fa-regular fa-heart"></i> Save</button>
+													<!-- <a href="/add-to-wishlist?id=<%=product._id%>"
 											class="btn btn-primary shadow-0 border-0"
 											style="background-color: rgb(182, 0, 0);"><i
-												class="fa-regular fa-heart"></i></i> Save</a>
-						</div>
+												class="fa-regular fa-heart"></i></i> Save</a> -->
+									</div>
 					</div>
 				</main>
 			</div>
@@ -358,6 +367,30 @@
 		function resetZoom(event) {
 			var zoomer = event.currentTarget;
 			zoomer.querySelector('img').style.transform = 'none';
+		}
+	</script>
+
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+	<script>
+		function addtoWishlist(id) {
+			$.ajax({
+				url: '/add-to-wishlist?id=' + id,
+				method: 'get',
+				success: (response) => {
+					if (response.wishStatus === true) {
+						Toastify({
+							text: "item added to wishlist",
+							duration: 1000,
+							gravity: "bottom", // `top` or `bottom`
+							position: "center", // `left`, `center` or `right`
+							stopOnFocus: true, // Prevents dismissing of toast on hover
+							style: {
+								background: "linear-gradient(to right, #000, #000)",
+							},
+						}).showToast();
+					}
+				}
+			})
 		}
 	</script>
 	<!--content section ends-->
