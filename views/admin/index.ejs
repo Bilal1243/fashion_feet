@@ -159,7 +159,11 @@
                             <span class="icon icon-sm rounded-circle bg-primary-light"><i class="text-primary material-icons md-monetization_on"></i></span>
                             <div class="text">
                                 <h6 class="mb-1 card-title">Revenue</h6>
-                                <span>&#8377;<%=total[0].total%></span>
+                                <%if(total.length > 0) {%>
+                                    <span>&#8377;<%=total[0].total%></span>
+                                <%} else {%>
+                                    <span>no orders</span>
+                                <%}%>
                                 <span class="text-sm">
                                     all orders
                                 </span>
