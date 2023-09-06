@@ -216,7 +216,9 @@
                               Order</button>
                             <%}%>
                               <% } %>
-                              <a id="downloadBtn" href="/invoice/downloadInvoice/orderSummary?id=<%=Order._id%>" class="btn btn-outline-success">invoice</a>
+                              <% if(Order.delivery_status === "Delivered"){%>
+                                <a id="downloadBtn" href="/invoice/downloadInvoice/orderSummary?id=<%=Order._id%>" class="btn btn-outline-success">invoice</a>
+                              <%}%>
             </div>
           </div>
           <a href="/load-Orders" class="btn btn btn-outline-primary rounded">Go Back</a>
