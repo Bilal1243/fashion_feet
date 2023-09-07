@@ -21,6 +21,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.min.js"></script>
 
   <link rel="stylesheet" href="/profile.css">
 </head>
@@ -43,34 +46,42 @@
   <!-- content section starts -->
 
   <div class="container mt-3 mb-3">
-      <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
-        <ol class="breadcrumb mb-0">
-          <li class="breadcrumb-item"><a href="/home">Home</a></li>
-          <li class="breadcrumb-item"><a href="/my-profile">Profile</a></li>
-          <li class="breadcrumb-item active" aria-current="page">edit profile</li>
-        </ol>
-      </nav>
-        <div class=" d-flex justify-content-center">
-            <div class="d-flex flex-column">
-                <div class="img-container d-flex justify-content-center">
-                    <img src="https://media.istockphoto.com/id/1130884625/vector/user-member-vector-icon-for-ui-user-interface-or-profile-face-avatar-app-in-circle-design.jpg?s=612x612&w=0&k=20&c=1ky-gNHiS2iyLsUPQkxAtPBWH1BZt0PKBB1WBtxQJRE=" alt="Admin" class="rounded-circle p-1" width="125">
-                </div>
-                    <form action="" class="d-flex flex-column" id="newUserProfile">
-                        <div class="row mt-2 p-2">
-                            <div class="col-md-12 p-2"><input type="text" class="form-control" value="<%=user.name%>" id="name" name="name"></div>
-                            <div class="col-md-12 p-2"><input type="text" class="form-control" value="<%=user.email%>" id="email" name="email"></div>
-                            <div class="col-md-12 p-2"><input type="text" class="form-control" value="<%=user.mobile%>" id="mobile" name="mobile"></div>
-                            <input type="text" style="display: none;" value="<%=user._id%>" name="id" name="id">
-                        </div>
-                        <button type="submit" class="btn btn-outline-primary" onclick="">change</button>
-                    </form>
-            </div>
+    <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+      <ol class="breadcrumb mb-0">
+        <li class="breadcrumb-item"><a href="/home">Home</a></li>
+        <li class="breadcrumb-item"><a href="/my-profile">Profile</a></li>
+        <li class="breadcrumb-item active" aria-current="page">edit profile</li>
+      </ol>
+    </nav>
+    <div class=" d-flex justify-content-center">
+      <div class="d-flex flex-column">
+        <div class="img-container d-flex justify-content-center">
+          <img
+            src="https://media.istockphoto.com/id/1130884625/vector/user-member-vector-icon-for-ui-user-interface-or-profile-face-avatar-app-in-circle-design.jpg?s=612x612&w=0&k=20&c=1ky-gNHiS2iyLsUPQkxAtPBWH1BZt0PKBB1WBtxQJRE="
+            alt="Admin" class="rounded-circle p-1" width="125">
         </div>
+        <form action="" class="d-flex flex-column" id="newUserProfile">
+          <div class="row mt-2 p-2">
+            <div class="col-md-12 p-2"><input type="text" class="form-control" value="<%=user.name%>" id="name"
+                name="name"></div>
+            <div class="col-md-12 p-2"><input type="text" class="form-control" value="<%=user.email%>" id="email"
+                name="email"></div>
+            <div class="col-md-12 p-2"><input type="text" class="form-control" value="<%=user.mobile%>" id="mobile"
+                name="mobile"></div>
+            <input type="text" style="display: none;" value="<%=user._id%>" name="id" name="id">
+          </div>
+          <button type="submit" class="btn btn-outline-primary" onclick="">change</button>
+        </form>
+        <p style="color: rgb(41, 101, 41);" class="text-muted small">
+          <%=(typeof message!=='undefined' )?message:""%>
+        </p>
+      </div>
+    </div>
   </div>
   <!-- content section ends -->
 
   <script>
-        document.getElementById('newUserProfile').addEventListener('submit', async (event) => {
+    document.getElementById('newUserProfile').addEventListener('submit', async (event) => {
       event.preventDefault();
       const formData = new FormData(event.target);
       const addressData = {
@@ -91,7 +102,13 @@
         if (data.status === true) {
           window.location.href = "/my-profile";
         } else {
-          alert(data.msg);
+          Swal.fire(
+            'not valid?',
+            data.message,
+            'question'
+          ).then(()=> {
+            window.location.href = "/edit-profile?id=" + data.user;
+          })
         }
 
       } catch (error) {

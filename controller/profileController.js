@@ -184,7 +184,7 @@ const removeAddress = async (req, res) => {
 const loadchangepass = async (req, res) => {
   try {
     res.render("change-password");
-  } catch (error) {}
+  } catch (error) { }
 };
 
 const updatepass = async (req, res) => {
@@ -389,7 +389,7 @@ const cancelOrder = async (req, res) => {
       }
       res.json({ status: true });
     }
-  } catch (error) {}
+  } catch (error) { }
 };
 
 const returnProduct = async (req, res) => {
@@ -504,22 +504,37 @@ const showWalletHistory = async (req, res) => {
   }
 };
 
-const loadEditprofile = async(req,res) => {
+const loadEditprofile = async (req, res) => {
   try {
-    const user = await User.findOne({_id : req.query.id})
-    res.render('edit-profile',{user})
+    const user = await User.findOne({ _id: req.query.id })
+    res.render('edit-profile', { user })
   } catch (error) {
     res.send('oops..server error')
   }
 }
 
-const setupNewUserProfile = async(req,res) =>{
+const setupNewUserProfile = async (req, res) => {
   try {
-    const {name,email,mobile,id} = req.body
+    const { name, email, mobile, id } = req.body
+    const findeduser = await User.findOne({_id : id})
+    if (!name || name.trim().length === 0) {
+      return res.json({ status: false ,user : id,message : 'enter valid name'})
+    }
+    if (/\d/.test(name) || /\d/.test(name)) {
+      return res.json({ status: false ,user : id,message : 'enter valid name'})
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return res.json({ status: false ,user : id,message : 'enter valid email'})
+    }
+    const mobileNumberRegex = /^\d{10}$/;
+    if (!mobileNumberRegex.test(mobile)) {
+      return res.json({ status: false ,user : id,message : 'enter valid mobile'})
+    }
 
-    const user = await User.findByIdAndUpdate({_id : id},{name : name,email : email,mobile : mobile})
+    const user = await User.findByIdAndUpdate({ _id: id }, { name: name, email: email, mobile: mobile })
 
-    return res.json({status :  true})
+    return res.json({ status: true })
 
 
   } catch (error) {
