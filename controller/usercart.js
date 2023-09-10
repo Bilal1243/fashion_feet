@@ -220,12 +220,14 @@ const addingAddress = async (req, res) => {
         return res.render("add-address", {
           message: "Numbers not allowed in name",
           is_single: true,
+          price : req.body.price,
           cart: req.query.product_id,
         });
       } else {
         return res.render("add-address", {
           message: "Numbers not allowed in name",
           is_single: false,
+          price : req.body.price,
           cart: null,
         });
       }
@@ -236,21 +238,35 @@ const addingAddress = async (req, res) => {
         return res.render("add-address", {
           message: "Mobile Number should be 10 digit",
           is_single: true,
+          price : req.body.price,
           cart: req.query.product_id,
         });
       } else {
         return res.render("add-address", {
           message: "Mobile Number should be 10 digit",
           is_single: false,
+          price : req.body.price,
           cart: null,
         });
       }
     }
     if (userFind) {
       if (nonDeletedAddresses.length === 2) {
-        return res.render("add-address", {
-          message: "please remove one address to add another",
-        });
+        if (req.body.product_id) {
+          return res.render("add-address", {
+            message: "please remove one address to add another",
+            is_single: true,
+            price : req.body.price,
+            cart: req.query.product_id,
+          });
+        } else {
+          return res.render("add-address", {
+            message: "please remove one address to add another",
+            is_single: false,
+            price : req.body.price,
+            cart: null,
+          });
+        }
       } else {
         userFind.addresses.push(values);
         await userFind.save();
